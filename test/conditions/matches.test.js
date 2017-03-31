@@ -14,6 +14,7 @@ describe("matches()", function() {
   it("should return value on else", withExpect(true, function() {
     return (matches(1)( 
              "when", (v) => v === 0, "then", Ok,
+             "when", (v) => v === 2, "then", 2,
              "else", -1
            ) === -1);
   }));

@@ -1,14 +1,20 @@
+function _matches(value, conds, elseValue) {
+  if(conds.length === 0 ) {
+    return elseValue;
+  } else {
+    const checkFn = conds[1];
+    const valueForMatch = conds[3];
+
+    return checkFn(value)? valueForMatch : _matches(value, conds.splice(4), elseValue); 
+  }
+}
+
 function matches(value) {
   return function(...clause) {
     const [elseValue, sElse, ...left] = clause.reverse();
     const conds = left.reverse();
 
-    if(conds[1](value)) {
-      console.log(conds[3])
-      return conds[3];
-    } else {
-      return elseValue;
-    }
+    return _matches(value, conds, elseValue);
   }
 }
 
