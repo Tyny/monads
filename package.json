@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --recursive test/**/*.test.js"
+    "test": "mocha --recursive  test/"
   },
   "author": "",
   "license": "ISC",

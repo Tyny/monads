@@ -1,5 +1,5 @@
-const { Maybe } = require("./../monads/maybe");
-const { dot } = require("./../data/object");
+const { Maybe } = require("./../../monads/maybe");
+const { dot } = require("./../../data/object");
 
 function greetUser(user) /* Maybe<String> */ {
   return Maybe.of(user)
