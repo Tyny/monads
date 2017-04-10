@@ -6,14 +6,23 @@ Maybe.__proto__.unit = function(val) {
   return new Maybe(val);
 }
 
+/**
+ *   @param (a) => b
+ *   @returns Maybe(b)
+ */
 
-Maybe.prototype.map = function(f) {
+Maybe.prototype.bind = function(f) {
   if (this.isNothing()) {
     return Maybe.unit(this._val);
   } else {
     return Maybe.unit(f(this._val));
   }
 }
+
+/**
+ *   @param (any) => Maybe(any)
+ *   @returns Maybe(any)
+ */
 
 Maybe.prototype.chain = function(f) {
   if (this.isNothing()) {
