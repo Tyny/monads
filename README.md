@@ -11,8 +11,10 @@ Play with monads
 
 
 #### Mondas
-1. Maybe (85%)
-2. Either 0%
+
+1. That there is a way to take a value of an unamplified type and turn it into a value of the amplified type.
+2. That there is a way to transform operations on the unamplified type into operations on the amplified type that obeys the rules of functional composition mentioned before
+3. That there is usually a way to get the unamplified type back out of the amplified type. (This last point isn't strictly necessary for a monad but it is frequently the case that such an operation exists.)
 
 .... More to come!
 

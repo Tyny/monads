@@ -11,4 +11,8 @@ describe("user greetings", function() {
     return greetUser({ age: 31 })._val === "Hello stranger"; 
   }));
 
+  it("should say hello to null user", withExpect(true, function() {
+    return greetUser(null)._val === "Hello stranger"; 
+  }));
+
 });

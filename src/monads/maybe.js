@@ -2,22 +2,22 @@ function Maybe(val) {
   this._val = val;
 }
 
-Maybe.__proto__.of = function(val) {
+Maybe.__proto__.unit = function(val) {
   return new Maybe(val);
 }
 
 
 Maybe.prototype.map = function(f) {
   if (this.isNothing()) {
-    return Maybe.of(this._val);
+    return Maybe.unit(this._val);
   } else {
-    return Maybe.of(f(this._val));
+    return Maybe.unit(f(this._val));
   }
 }
 
 Maybe.prototype.chain = function(f) {
   if (this.isNothing()) {
-    return Maybe.of(this._val);
+    return Maybe.unit(this._val);
   } else {
     return f(this._val);
   }
@@ -25,7 +25,7 @@ Maybe.prototype.chain = function(f) {
 
 Maybe.prototype.orElse = function(v) {
   if(this.isNothing()) {
-    return Maybe.of(v);
+    return Maybe.unit(v);
   } else {
     return this;
   }
