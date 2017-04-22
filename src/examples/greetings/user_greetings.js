@@ -6,7 +6,7 @@ const { dot } = require("./../../data/object");
 
 function greetUser(user) /* Maybe<String> */ {
   return Maybe.unit(user)
-    .bind((user) => dot("name", user)).orElse("stranger")
+    .bind(dot("name")).orElse("stranger")
     .bind((username) => `Hello ${username}`);
 }
 

@@ -10,12 +10,9 @@ describe("object data helpers", function() {
     }));
 
     it("should access object nested property", withExpect(true, function() {
-      return dot("user", "name", { user: { name: "William" } }) === "William";
+      return dot("user.name", { user: { name: "William" } }) === "William";
     }));
 
-    it("should return object if no properties", withExpect(true, function() {
-      return dot("William") === "William";
-    }));
 
   });
 

@@ -1,3 +1,5 @@
+const { curry } = require("./../functions/curry");
+
 function _dot(obj, props) {
   if(props.length === 0) {
     return obj;
@@ -6,11 +8,10 @@ function _dot(obj, props) {
   }
 }
 
-function dot(...args) {
-  const [obj, ...props] = args.reverse();
-  return _dot(obj, props.reverse());
+function dot(accessor, obj) {
+  return _dot(obj, accessor.split("."));
 }
 
 module.exports = {
-  dot
-}
+  dot: curry(dot)
+} 
