@@ -1,4 +1,4 @@
-const { curry } = require("./../functions/curry");
+const { curry } = require("./function");
 
 function _dot(obj, props) {
   if(props.length === 0) {
