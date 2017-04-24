@@ -1,12 +1,12 @@
-function _curry(fn, fnLength, argsAcc) {
+function _curry(fn, fnLength, previousArgs) {
   
-  return function curryfied(...args) {
-    const totalArgs = argsAcc.concat(args);
+  return function curryfied(...newArgs) {
+    const args = previousArgs.concat(newArgs);
     
-    if(totalArgs.length >= fnLength) {
-      return fn(...totalArgs);
+    if(args.length >= fnLength) {
+      return fn(...args);
     } else {
-      return _curry(fn, fnLength, totalArgs);
+      return _curry(fn, fnLength, args);
     }
   }
 }
