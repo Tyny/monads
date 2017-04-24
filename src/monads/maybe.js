@@ -13,7 +13,7 @@ Maybe.__proto__.unit = function(val) {
 
 Maybe.prototype.bind = function(f) {
   if (this.isNothing()) {
-    return Maybe.unit(this._val);
+    return this;
   } else {
     return f(this._val);
   }
@@ -26,7 +26,7 @@ Maybe.prototype.bind = function(f) {
 
 Maybe.prototype.map = function(f) {
   if (this.isNothing()) {
-    return Maybe.unit(this._val);
+    return this;
   } else {
     return Maybe.unit(f(this._val));
   }
