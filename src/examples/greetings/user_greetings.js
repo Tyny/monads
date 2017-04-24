@@ -6,8 +6,8 @@ const { dot } = require("./../../data/object");
 
 function greetUser(user) /* Maybe<String> */ {
   return Maybe.unit(user)
-    .chain(dot("name")).orElse("stranger")
-    .chain((username) => `Hello ${username}`);
+    .map(dot("name")).orElse("stranger")
+    .map((username) => `Hello ${username}`);
 }
 
 module.exports = { greetUser };

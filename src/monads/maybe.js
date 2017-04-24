@@ -24,7 +24,7 @@ Maybe.prototype.bind = function(f) {
  *   @returns Maybe(any)
  */
 
-Maybe.prototype.chain = function(f) {
+Maybe.prototype.map = function(f) {
   if (this.isNothing()) {
     return Maybe.unit(this._val);
   } else {

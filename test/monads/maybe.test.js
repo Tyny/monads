@@ -21,15 +21,15 @@ describe("Maybe monad", () => {
    });
 
 
-   describe("chain", function() {
+   describe("map", function() {
      
-     it("should not chain null or undefined", withExpect(true, function() {
-       return Maybe.unit(null).chain(plus_1)._val === null &&
-              Maybe.unit(undefined).chain(plus_1)._val === undefined; 
+     it("should not map null or undefined", withExpect(true, function() {
+       return Maybe.unit(null).map(plus_1)._val === null &&
+              Maybe.unit(undefined).map(plus_1)._val === undefined; 
      }));
     
-     it("should chain value", withExpect(true, function() {
-       return Maybe.unit(1).chain(plus_1)._val === 2; 
+     it("should map value", withExpect(true, function() {
+       return Maybe.unit(1).map(plus_1)._val === 2; 
      }));
 
    });
