@@ -49,5 +49,14 @@ Maybe.prototype.isNothing = function() {
   return this._val === null || this._val === undefined;
 }
 
+/**
+ *   @description Returns the value inside the monad
+ *   @returns any
+ */
+
+Maybe.prototype.just = function() {
+  return this._val;
+}
+
 
 module.exports.Maybe = Maybe;
