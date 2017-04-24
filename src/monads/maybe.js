@@ -7,11 +7,24 @@ Maybe.__proto__.unit = function(val) {
 }
 
 /**
- *   @param (a) => b
- *   @returns Maybe(b)
+ *   @param (any) => Maybe(any)
+ *   @returns Maybe(any)
  */
 
 Maybe.prototype.bind = function(f) {
+  if (this.isNothing()) {
+    return Maybe.unit(this._val);
+  } else {
+    return f(this._val);
+  }
+}
+
+/**
+ *   @param (any) => (any)
+ *   @returns Maybe(any)
+ */
+
+Maybe.prototype.chain = function(f) {
   if (this.isNothing()) {
     return Maybe.unit(this._val);
   } else {
@@ -20,17 +33,9 @@ Maybe.prototype.bind = function(f) {
 }
 
 /**
- *   @param (any) => Maybe(any)
+ *   @param any
  *   @returns Maybe(any)
  */
-
-Maybe.prototype.chain = function(f) {
-  if (this.isNothing()) {
-    return Maybe.unit(this._val);
-  } else {
-    return f(this._val);
-  }
-}
 
 Maybe.prototype.orElse = function(v) {
   if(this.isNothing()) {
