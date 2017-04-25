@@ -2,15 +2,16 @@ const { Maybe } = require("./../../monads/maybe");
 const { dot } = require("./../../data/object");
 
 /**
+ * @description says hello to a user
  * 
  * @param {Maybe<object>} user
- * @returns string 
+ * @returns Maybe<string> 
  */
 
 function greetUser(mUser) {
   return mUser
-    .map(dot("name")).orElse("stranger")
-    .map((name) => `Hello ${name}`).just();
+    .map(dot("name"))
+    .map((name) => `Hello ${name}`);
 }
 
 module.exports = { greetUser };

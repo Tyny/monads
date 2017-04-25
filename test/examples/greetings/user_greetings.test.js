@@ -5,15 +5,15 @@ const { greetUser } = require("./../../../src/examples/greetings/user_greetings"
 describe("user greetings", function() {
 
   it("should say hello to user", withExpect(true, function() {
-    return greetUser(Maybe.unit({ name: "Gonza" })) === "Hello Gonza"; 
+    return greetUser(Maybe.unit({ name: "Gonza" })).just() === "Hello Gonza"; 
   }));
 
-  it("should say hello to anonymous user", withExpect(true, function() {
-    return greetUser(Maybe.unit({ age: 31 })) === "Hello stranger"; 
+  it("should not say hello to anonymous user", withExpect(true, function() {
+    return greetUser(Maybe.unit({ age: 31 })).isNothing();
   }));
 
-  it("should say hello to null user", withExpect(true, function() {
-    return greetUser(Maybe.unit(null)) === "Hello stranger"; 
+  it("should not say hello to null user", withExpect(true, function() {
+    return greetUser(Maybe.unit(null)).isNothing(); 
   }));
 
 });
