@@ -7,7 +7,7 @@ Play with monads
 #### Helpers
 1. dot (misssing partial application capabilities)
 2. matches (similar to elixir's cond)
-3. curry (pending)
+3. curry (just a curry)
 
 
 #### Mondas
