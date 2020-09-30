@@ -1,5 +1,5 @@
-# Monads
-Play with monads
+# Functional programming
+Play with FP
 
 
 #### Implement mondas applying functional programming
